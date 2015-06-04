@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Test Page</title>
+</head>
+<body>
+		
+		<div th:if="${testFlag}">
+			Student Data : <br/><br/>
+			Search Criterion : <label th:text="${student.searchCriterion}"></label><br/>
+			Keyword : <label th:text="${student.keyword}"></label><br/>
+		</div>
+		
+		<div th:unless="${testFlag}">
+			Hello!
+		</div>
+</body>
+</html>

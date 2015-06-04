@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>University Dashboard</title>
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/uielements/bootstrap.css"
+	type="text/css" />
+<link rel="stylesheet" href="css/uielements/uniform.tp.css"
+	type="text/css" />
+<link rel="stylesheet" href="css/uielements/jquery.ui.css"
+	type="text/css" />
+<link rel="stylesheet" href="css/uielements/jquery.chosen.css"
+	type="text/css" />
+<link rel="stylesheet" href="css/uielements/style.default.css"
+	type="text/css" />
+<link rel="stylesheet" href="css/jquery.wysiwyg.css" type="text/css" />
+<link rel="stylesheet" href="css/video-js.css" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/uielements/prettify.js"></script>
+<script type="text/javascript"
+	src="js/uielements/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="js/uielements/jquery.cookie.js"></script>
+<script type="text/javascript"
+	src="js/uielements/jquery.validate.min.js"></script>
+
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript"
+	src="js/uielements/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/uielements/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="js/uielements/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="js/uielements/jquery.uniform.min.js"></script>
+<script type="text/javascript"
+	src="js/uielements/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="js/uielements/charCount.js"></script>
+<script type="text/javascript" src="js/uielements/ui.spinner.min.js"></script>
+<script type="text/javascript" src="js/uielements/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="js/uielements/modernizr.min.js"></script>
+<script type="text/javascript" src="js/uielements/detectizr.min.js"></script>
+<script type="text/javascript" src="js/uielements/custom.js"></script>
+<script src="js/video.js"></script>
+<script type="text/javascript" src="js/jquery.wysiwyg.js"></script>
+  
+<script type="text/javascript">
+	function checkConfirm(){
+		return confirm("Are you sure want to delete this record ?");
+	}
+	
+	/** Code added by BalajiI and PallaviD */
+	function broadcastCampusInternship(internshipId, count)
+	{
+		 $.ajax({
+			 
+			  	type : 'POST',
+			 	url : 'university_broadcast_internship.json',						
+				cache : false,
+				data: 'internshipId='+internshipId,
+				success: function (successFlag) 
+				{
+	                if (successFlag)
+		            {
+	                     $('a.broadcastInternship#'+count).parent().find('a').hide();
+	                     $("#successMessageSpan").empty().append("You've Successfully Broadcasted the Internship");
+	           	     	 $("#chgPasswordModal").dialog({
+	           	            modal: true,
+	           	            open: function(event, ui){
+	           	                setTimeout("$('#chgPasswordModal').dialog('close')",2000);
+	           	            }
+	            });
+	                }
+	            }
+				
+		});
+		
+		
+	}
+</script>
+</head>
+<body class="animate">
+	<div id="wrap">
+		 <div th:replace="header :: copy"></div>
+		
+		<div id="midcontainer">
+			<div id="innerbanner_wrap">
+				<div id="banner">
+					<img src="images/university_innerbanner.jpg" width="100%"
+						alt="Great way to find talent. Sign Up Now!" />
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div id="innersection">
+				<!--   <div id="breadcrums_wrap">You are here: Dashboard</div> -->
+
+				<section id="rightwrap" class="floatleft">
+		
+				<div class="quickaction_wrap">
+						<ul>
+							<li>
+								<div class="top_notifications top_notifications_redbg" id="jobSize" th:text="${newJobAlerts}">
+								
+									
+								</div> 
+								<a th:href="@{university_campus_jobs_internships.htm}">
+									<div class="floatleft iconwrap">
+										<img src="images/jobalert_icn.png" alt="" />
+									</div>
+									<div class="floatleft textwrap">New Job Alerts</div>
+							</a>
+							</li>
+							<li>
+								<div class="top_notifications top_notifications_redbg" th:text="${noOfUpcomingEvents}">
+								</div> 
+								
+								<a th:href="@{university_manage_scheduledevents.htm}">
+									<div class="floatleft iconwrap">
+										<img src="images/calendar_icn.png" alt="" />
+									</div>
+									<div class="floatleft textwrap">Upcoming Events</div>
+							</a>
+							</li>
+							<li>
+								<div class="top_notifications top_notifications_redbg" th:text="${pendingInvitations}">
+								</div> 
+								
+								<a th:href="@{university_manage_received_invitations.htm}">
+									<div class="floatleft iconwrap">
+										<img src="images/mail_icn_tab.png" alt="" />
+									</div>
+									<div class="floatleft textwrap">New Invitations</div>
+							</a>
+							</li>
+							<li>
+								
+								<a th:href="@{university_schedule_anevent.htm}">
+									<div class="floatleft iconwrap">
+										<img src="images/createprofile_icn.png" alt="" />
+									</div>
+									<div class="floatleft textwrap">Schedule an Event</div>
+							</a>
+							</li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+					
+					
+					
+					<div class="whitebackground margin_top2">
+
+						<div class="actionlegend_wrap floatright ">
+							<ul>
+								<li>Actions Legends:</li>
+								<li><img src="images/green_circle.png" />Broadcasted</li>
+								<li><img src="images/red_circle.png" />Published</li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+
+						<h2 class="smallsectionheading">View Published Jobs</h2>
+						<div id="tabs" class="doublebottom_margin">
+							<ul>
+								<li><a href="#tabs-1">Jobs ( <span th:text = "${campusJobCount}" ></span>
+											  )
+								</a></li>
+								<li><a href="#tabs-2">Internships ( <span th:text = "${campusInternshipCount}" ></span>
+											  )
+								</a></li>
+							</ul>
+							<div id="tabs-1">
+
+								<div class="clear"></div>
+								<table class="table table-bordered" id="dyntable">
+									<thead>
+										<tr>
+											<th width="5%" class="table_leftalign">&nbsp;</th>
+											<th width="36%" class="table_leftalign">Job Title</th>
+											<th width="21%" class="table_leftalign">Posted by</th>
+											<th width="13%" class="table_leftalign">Posted on</th>
+											<th width="12%" class="table_leftalign">Responses</th>
+											<th width="10%" class="table_leftalign nosort">Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+									
+										<tr th:each="campusJob : ${campusJobs}">
+										
+												<td class="table_centeralign">
+												
+														<span th:if = "${campusJob.status eq 'Published' }">
+															<img src="images/red_circle.png" alt="" />
+														</span>
+														<span th:if = "${campusJob.status eq 'Broadcasted' }">
+															<img src="images/green_circle.png" alt="" />
+														</span>
+														<span th:unless = "${campusJob.status eq 'Published' || campusJob.status eq 'Broadcasted' }">
+															<img src="images/grey_circle.png" alt="" />
+														</span>
+													</td>
+
+												<td>
+												<a th:href="@{campus_job_preview.htm(jobId=${campusJob.jobIdAndFirmId}, universityName=${campusJob.universityName} )}">
+												<span th:text= "${campusJob.jobTitle}"></span>
+												</a></td>
+												<td th:text="${campusJob.firmName}"></td>
+												
+												
+												<td class="table_centeralign">
+													<span th:if="${campusJob.postedOn != null}">
+														<span th:text="${#calendars.format(campusJob.postedOn,'dd MMM yyyy')}"></span>
+													</span>
+												</td>
+
+														<td align="center">
+														<span th:if="${campusJob.campusJobAppliedStudents.size() != 0}"> 
+														<a th:href="@{view_campus_job_responses.htm(jobId=${campusJob.jobIdAndFirmId}, universityName=${campusJob.universityName} )}"
+															class="center_align"> 
+															
+															<span th:text="${campusJob.campusJobAppliedStudents.size()}"></span></a>
+													</span>
+													
+													<span th:unless="${campusJob.campusJobAppliedStudents.size() != 0}"> 
+														 0
+													</span>
+													
+													
+															</td>
+													
+													
+														<td class="table_centeralign">
+													<span th:if = "${campusJob.status eq 'Published'}">
+															<a th:href="@{university_dashboard.htm(job_id=${campusJob.jobIdAndFirmId}, job_action='Closed')}"
+															onclick="return checkConfirm()">
+															
+															<img
+																src="images/small_delete_icn.png"
+																class="table_actionbtn" alt="Delete" title="Delete" /></a>
+															
+															
+															<a class="broadcastJob" onclick="broadcastCampusJob('${campusJob.jobIdAndFirmId}',this.id)"><img
+																src="images/broadcast_action.png"
+																class="table_actionbtn" alt="Broadcast Job"
+																title="Broadcast Job" /></a>
+																
+																</span>
+																
+													
+
+													<span th:if ="${campusJob.status eq 'Broadcasted'}">
+														
+															<img src="images/small_delete_icn_disable.png" class="table_actionbtn" alt="Delete" title="Delete" />
+															<img src="images/broadcast_action_disable.png" class="table_actionbtn" alt="Broadcast" title="Broadcast" />
+														
+													</span>
+
+													<span th:unless = "${campusJob.status eq 'Published' || campusJob.status eq 'Broadcasted'}">
+														<img
+															src="images/small_delete_icn_disable.png" class="table_actionbtn"
+															alt="Delete" title="Delete"/>
+													</span>
+												
+												</td>
+											</tr>
+										
+
+									</tbody>
+								</table>
+							</div>
+							
+							<div id="tabs-2">
+
+								<div class="clear"></div>
+								<table class="table table-bordered" id="dyntable1">
+									<thead>
+										<tr>
+											<th width="5%" class="table_leftalign">&nbsp;</th>
+											<th width="31%" class="table_leftalign">Internship Title</th>
+											<th width="14%" class="table_leftalign">Posted by</th>
+											<!--  <th width="13%" class="table_centeralign">Status</th> -->
+											<th width="14%" class="table_centeralign">Posted on</th>
+											<th width="12%" class="table_centeralign">Responses</th>
+											<th width="10%" class="table_centeralign nosort">Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+									
+											<tr th:each="campusInternship,loopCount : ${campusInternships}">
+												<td class="table_centeralign">
+														<span th:if="${campusInternship.status eq 'Published' }">
+															<img src="images/red_circle.png" alt="" />
+														</span>
+														<span th:if="${campusInternship.status eq 'Broadcasted' }">
+															<img src="images/green_circle.png" alt="" />
+														</span>
+														<span th:unless="${campusInternship.status eq 'Published' || campusInternship.status eq 'Broadcasted'}">
+															<img src="images/grey_circle.png" alt="" />
+													</span>
+													</td>
+
+												<td>
+												<a th:href="@{campus_internship_preview.htm(internshipId=${campusInternship.internshipIdAndFirmId},universityName=${campusInternship.universityName})}">
+															<span th:text="${campusInternship.internshipTitle}" ></span></a></td>
+												<td><span th:text="${campusInternship.firmName}" ></span></td>
+												
+												<td class="table_centeralign">
+													<span th:if="${campusInternship.postedOn != null}">
+														<span th:text="${#calendars.format(campusInternship.postedOn,'dd MMM yyyy')}"></span>
+													</span>
+												</td>
+
+												<td align="center">
+													<span th:if="${campusInternship.campusInternshipAppliedStudents.size() != 0}">
+														<a th:href="@{view_campus_internship_responses.htm(internshipIdAndFirmId=${campusInternship.internshipIdAndFirmId},universityName=${campusInternship.universityName})}"
+															class="center_align"> 
+															<span th:text="${campusInternship.campusInternshipAppliedStudents.size()}"></span></a>
+													</span>
+													<span th:unless="${campusInternship.campusInternshipAppliedStudents.size() != 0}">0
+														</span>
+														</td>
+														<td class="table_centeralign">
+													<span th:if="${campusInternship.status eq 'Published'}">
+														<a th:href="@{university_dashboard.htm(internship_id=${campusInternship.internshipIdAndFirmId},internship_action='Closed')}"
+															onclick="return checkConfirm()">
+															<img src="images/small_delete_icn.png"
+																class="table_actionbtn" alt="Delete" title="Delete" /></a>
+													<a th:id="${loopCount.index}" class="broadcastInternship"
+														th:onclick="'javascript:broadcastCampusInternship(\'' + ${campusInternship.internshipIdAndFirmId} + '\',\'' + ${loopCount.index} + '\');'">
+															<img src="images/broadcast_action.png"
+																class="table_actionbtn" alt="Broadcast Job"
+																title="Broadcast Internship"/></a>
+													</span>
+													<span th:if="${campusInternship.status eq 'Broadcasted'}">
+														
+															<img src="images/small_delete_icn_disable.png" class="table_actionbtn" alt="Delete" title="Delete" />
+															<img src="images/broadcast_action_disable.png" class="table_actionbtn" alt="Broadcast" title="Broadcast" />			
+															</span>											
+													
+														<span th:unless="${campusInternship.status eq 'Broadcasted' || campusInternship.status eq 'Published'}">
+														<img src="images/small_delete_icn.png" class="table_actionbtn"
+															alt="Delete" title="Delete" />
+															</span></td>
+													
+
+											</tr>
+
+										
+
+									</tbody>
+								</table>
+							</div>
+							
+						</div>
+					</div>
+					<div class = "clear"></div>
+					
+					
+		
+		<div class="whitebackground margin_top2">
+						<h2 class="smallsectionheading">Corporate Invitations</h2>
+						<div class="par">
+							<table class="table table-bordered" id="dyntable2">
+								<thead>
+									<tr>
+										<th width="35%" class="table_leftalign">Event Name</th>
+										<th width="20%" class="table_leftalign">Company Name</th>
+										<!-- <th width="22%" class="table_leftalign">Date</th> -->
+										<th width="10%" class="table_centeralign">Status</th>
+										<!-- <th width="12%" class="table_centeralign">Actions</th> -->
+									</tr>
+								</thead>
+								<tbody>
+										<tr th:each="corporateinvitevar : ${eventList}">
+											<td>
+												<a th:href="@{university_preview_corporate_invitation.htm(eventId=${corporateinvitevar.eventId})}">
+													<span th:text="${corporateinvitevar.eventName}"></span>
+												</a>
+											</td>
+											
+											<td> <span th:text="${corporateinvitevar.companyName}"></span></td>
+											
+											
+											<td class="table_centeralign">
+											 	<span th:text="${corporateinvitevar.invitationStatus}" ></span>
+											 </td>
+										</tr>
+									
+
+								</tbody>
+							</table>
+						</div>
+		</div>
+		</section>
+		
+		
+	</div>
+	
+	</div>
+	
+	<div aria-hidden="false" aria-labelledby="myModalLabel" role="dialog"
+			tabindex="-2" class="modal hide fade in hideShadow"
+			id="chgPasswordModal">
+			<div class="modal-backdrop fade in" style="z-index: 999;"></div>
+			<div class="modal ui-dialog-content popModalMessage">
+				<div class="modal-header">
+					<!--  <button aria-hidden="true" data-dismiss="modal" class="close" type="button" onclick="javascript:">x</button> -->
+					<h3 id="myModalLabel">Success</h3>
+				</div>
+				<div class="modal-body">
+					<span id="successMessageSpan"></span>
+						<span th:text="${successMessage}"></span>
+				</div>
+			</div>
+		</div>
+	
+	
+	</div>
+</body>
+</html>

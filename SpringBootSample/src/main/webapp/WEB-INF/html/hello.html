@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+     <title>Hello Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="webjars/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    
+function Student(firstName, lastName){
+	this.lastName = lastName;
+	this.firstName = firstName;
+}    
+
+
+        $(document).ready(function() {
+        	$( "#div1" ).effect( "bounce", "slow" );
+        	
+          /*   $('p').animate({
+                fontSize: '48px'
+            }, "slow"); */
+          /*   
+            $('p').slideDown();
+            
+            $( "#slideDown" ).click(function() {
+            	  $( "#slideDown" ).slideDown( "slow", function() {
+            	    // Animation complete.
+            	  });
+            	  $( "#div1" ).effect( "bounce", "slow" );
+            	}); */
+            
+            $("#ajaxTest").click(function(){
+            	
+            	/*  $.ajax({url: "ajax_test.htm", success: function(result){
+            		 $("#div1").show();
+            	        $("#div1").html(result);
+            	    }}); */
+            	   
+            	    
+            	 var student = new Student("Pallavi", "Damle");
+            	    
+            	/*  alert(student);
+            	 alert(student.lastName);
+            	 alert(student.firstName); */
+            	 
+            	 var student1 = new Student("Thymeleaf", "Useless");
+         	   /*  
+            	 alert(student1);
+            	 alert(student1.lastName);
+            	 alert(student1.firstName);
+            	  */
+            	   
+            	/* var student = new Object();
+            	student.lastName = "kdk";
+            	student.firstName = "ssjkj";
+            	  
+           	$.ajax({
+
+            		  type : 'POST',
+            		  url : 'ajax_post.json',
+//            		  dataType : 'json',
+            		  cache : false,
+            		  data : JSON.stringify(student),
+            		  contentType : 'application/json',
+
+            		  success : function(result) {
+            			  alert("Success");
+            			$("#div1").show();
+              	        $("#div1").html(result);
+            		  },
+
+            		  error : function(xhr, error) {
+            		   alert("Failed");
+            		  }
+
+            		 }); */
+            	 
+            });
+            
+            
+        });
+    </script>
+       
+    </head>
+         <body>
+        <h1>Welcome!</h1>
+ 
+        <p id="slideDown">Click <a th:href="@{/clickPage}">here</a>To See Effects.</p>
+        
+        <!-- <p id="ajaxTest">Click Ajax to see a greeting.</p> -->
+        
+        <div id="div1">Bounce Effect</div>
+    </body>
+</html>

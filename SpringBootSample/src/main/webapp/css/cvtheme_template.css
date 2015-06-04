@@ -1,0 +1,591 @@
+body, p, h1, h2, ul {
+	margin: 0;
+	padding: 0;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+img {
+	border: 0;
+}
+a {
+	text-decoration: none;
+}
+@font-face {
+    font-family: 'lobster_tworegular';
+    src: url('lobstertwo-regular.eot');
+    src: url('lobstertwo-regular.eot?#iefix') format('embedded-opentype'),
+         url('lobstertwo-regular.woff') format('woff'),
+         url('lobstertwo-regular.ttf') format('truetype'),
+         url('lobstertwo-regular.svg#lobster_tworegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'timeburnerregular';
+    src: url('timeburner_regular.eot');
+    src: url('timeburner_regular.eot?#iefix') format('embedded-opentype'),
+         url('timeburner_regular.woff') format('woff'),
+         url('timeburner_regular.ttf') format('truetype'),
+         url('timeburner_regular.svg#timeburnerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.templates {
+	float: left;
+	width: 11%;
+	padding-right: 26px;
+}
+.templates ul {
+	margin: 0;
+	padding: 0;
+}
+.templates ul li {
+	list-style-type: none;
+	margin-bottom: 20px;
+	background:#fff;
+}
+.templates ul li a {
+	border: 1px solid #eaeaea;
+	display: block;
+}
+.templates ul li a:hover, .templates ul li a:active {
+	border: 1px solid #329bce;
+	display: block;
+}
+.templates ul li a.active {
+	border: 1px solid #329bce;
+	display: block;
+}
+.templates ul li a img {
+	margin-bottom: 10px;
+	text-align: center;
+	display: block;
+	padding-top: 20px;
+}
+.templates ul li a span {
+	color: #329bce;
+	text-align: center;
+	display: block;
+	padding-bottom: 20px;
+}
+.pdfbtn {
+	margin-bottom: 15px;
+	float: right;
+}
+input[type="button"].download {
+	color: #E8F0DE;
+	border: solid 1px #538312;
+	background: #64991E;
+	background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+	background: -moz-linear-gradient(top, #7DB72F, #4E7D0E);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db72f', endColorstr='#4e7d0e');
+	display: inline-block;
+	zoom: 1;
+	vertical-align: baseline;
+	margin: 15px 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font-size: 22px;
+	padding: 0.4em 0.8em;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	float: right;
+}
+/*tnemeing*/
+#customize-template, #customize-corporate, #customize-classic {
+	display: none;
+	float: left;
+	width: 65%
+}
+.buttonPan {
+	float: right;
+	width: 70%
+}
+#customize-corporate, #customize-classic {
+	display: none;
+}
+#customize-Simple {
+	font-size: 12px;
+	width: 72%;
+	margin: 0 auto;
+	-moz-box-shadow: #dddddd 1px 1px 10px 6px;
+	-webkit-box-shadow: #dddddd 1px 1px 10px 6px;
+	-o-box-shadow: #dddddd 1px 1px 10px 6px;
+	box-shadow: #dddddd 1px 1px 10px 6px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	background-color: #fff;
+	float: left;
+	padding: 60px;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+#customize-Simple .view-resume {
+	float: left;
+	width: 100%;
+}
+#customize-Simple .view-resume .name {
+	/*margin-left: 204px;*/
+	text-align: right;
+	color: #329bce;
+	font-size: 40px;
+	font-weight: normal;
+	line-height: 65px;
+	margin-bottom: 20px;
+}
+#customize-Simple .view-resume .name span{
+	font-size: 40px;}
+#customize-Simple .view-resume .sections {
+	float: left;
+	width: 100%;
+	margin-bottom: 40px;
+}
+#customize-Simple .view-resume .sections .headings {
+	color: #329bce;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: 16px;
+	float: left;
+	width: 100%;
+	margin: 0;
+	padding: 0 0 5px 0;
+	margin-bottom: 20px;
+	border-bottom: #e5e5e5 1px solid;
+}
+#customize-Simple .view-resume .sections .content {
+	float: left;
+	width: 100%;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 26px;
+}
+#customize-Simple .view-resume .sections .address {
+	float: left;
+	width: 100%;
+	text-align: right;
+	background: #e5e5e5;
+	padding: 10px;
+	color: #000;
+	font-size: 14px;
+}
+#customize-Simple .view-resume .sections .expertise ul, #customize-Simple .view-resume .sections .education ul, #customize-Simple .view-resume .sections .skills ul {
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+.cvdate {
+	font-weight: bold;
+}
+.smallfontitalic {
+	font-size: 12px;
+	font-style: italic;
+}
+.dashlisting li {
+	list-style-type: none;
+}
+#customize-Simple .view-resume .sections .skills ul li, #customize-Simple .view-resume .sections .education ul li {
+	list-style-type: none;
+	line-height: 26px;
+}
+#customize-Simple .view-resume .sections .education ul li span {
+	font-weight: bold;
+}
+#customize-Simple .view-resume .sections .education ul li ul li {
+	list-style-type: circle;
+	line-height: 26px;
+	margin-left: 20px;
+}
+#customize-Simple .view-resume .sections .skills ul li {
+	list-style-type: disc;
+	line-height: 26px;
+	margin-left: 20px;
+}
+#customize-Simple .view-resume .sections .mobileno, #customize-Simple .view-resume .sections .emailid {
+	padding-left: 10px;
+}
+#customize-Simple .view-resume .disable {
+	border: 1px dashed #ccc;
+	padding: 5px;
+}
+#customize-Simple .view-resume .disable .headings, #customize-Simple .view-resume .disable .content {
+	color: #ccc;
+}
+.break {
+	page-break-after: always;
+}
+/**/
+
+/*tnemeing*/
+
+/*tnemeing*/
+
+
+
+
+#customize-expertise {
+	display: none;
+	float: left;
+	width: 83%;
+	font-size: 12px;
+	margin: 0;
+	-moz-box-shadow: #dddddd 1px 1px 10px 6px;
+	-webkit-box-shadow: #dddddd 1px 1px 10px 6px;
+	-o-box-shadow: #dddddd 1px 1px 10px 6px;
+	box-shadow: #dddddd 1px 1px 10px 6px;
+	background-color: #fff;
+	
+	border-top: 15px solid #e36e0e;
+	border-bottom: 15px solid #e36e0e;
+	font-family:lobster_tworegular;
+}
+#customize-expertise .view-resume {
+	float: left;
+	width: 100%;
+}
+#customize-expertise .view-resume .name img{
+	background:#fff;
+	border:1px solid #ccc;	
+	padding:3px;
+	float:left;
+	margin:35px 25px 15px 35px;
+}
+#customize-expertise .view-resume .name {
+	/*margin-left: 204px;
+text-align:right;*/
+	color: #424242;
+	font-size: 46px;
+	font-weight: normal;
+	line-height:58px;
+	font-family:lobster_tworegular;
+	background: #f1f1f1;
+	float: left;
+	width: 100%;
+	margin: 0;
+}
+
+#customize-expertise .view-resume .name span{
+	font-size: 40px;}
+#customize-expertise .view-resume .name .designation{
+	font-style:italic;
+	color:#90908e;
+	font-size:16px;
+	
+}
+#customize-expertise .view-resume .name span{
+	margin-top:25px;
+	display:inline-block;
+}
+
+#customize-expertise .view-resume .sections {
+	float: left;
+	width: 94.9%;
+	clear:both;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #cccccc;
+	background:none;
+	
+}
+#customize-expertise .view-resume .header{
+	padding:0;	
+	width: 100%;
+}
+#customize-expertise .view-resume .sections .headings {
+	color: #555555;
+	text-transform:capitalize;
+	font-size: 20px;
+	float: left;
+	width: 32%;
+	margin: 0;
+	padding: 0 0px 5px 0;
+	word-break:normal;
+	line-height: 26px;
+	font-weight: bold;
+	margin-bottom: 10px;font-family:timeburnerregular;
+	font-weight:bold;
+}
+#customize-expertise .view-resume .sections .headings span {
+	display: block;
+}
+#customize-expertise .view-resume .sections .content {
+	float: left;
+	width: 57%;
+	font-family:tahoma;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 28px;
+	background: url(../images/resume-icons.png) no-repeat left top;
+	padding-left: 46px;
+}
+#customize-expertise .view-resume .sections .address {
+	float: left;
+	width: 95.2%;
+	padding:0 15px 0 35px;
+	color: #373b3c;
+	font-size: 14px;
+	font-style:italic;
+	background: #f1f1f1 !important;
+	font-family:tahoma;
+}
+#customize-expertise .view-resume .sections .address span {
+	display: inline;
+}
+#customize-expertise .view-resume .sections .expertise ul, #customize-expertise .view-resume .sections .education ul, #customize-expertise .view-resume .sections .skills ul {
+	
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+#customize-expertise .view-resume .sections .cvdate {
+	color: #fff;
+	background:#d86812;
+	padding:3px;
+		font-family:tahoma;
+	font-style:italic;
+}
+.smallfontitalic {
+	font-size: 12px;
+	font-style: italic;
+}
+.dashlisting li {
+	list-style-type: none;
+}
+#customize-expertise .view-resume .sections .skills ul li, #customize-expertise .view-resume .sections .education ul li, #customize-expertise .view-resume .sections .expertise ul li  {
+	list-style-type: none;
+	line-height: 26px;
+		font-family:tahoma;
+}
+#customize-expertise .view-resume .sections .experience span {
+	color: #e86e14;
+	display: block;
+}
+#customize-expertise .view-resume .sections .education ul li span {
+	color: #e86e14;
+	display: block;
+}
+#customize-expertise .view-resume .sections .education ul li ul li {
+	list-style-type: circle;
+	line-height: 26px;
+		font-family:tahoma;
+	margin-left: 20px;
+}
+#customize-expertise .view-resume .sections .skills ul li {
+	list-style-type: disc;
+	line-height: 26px;
+	margin-left: 20px;
+		font-family:tahoma;
+}
+#customize-expertise .view-resume .sections .expertise {
+	
+}
+#customize-expertise .view-resume .sections .disable {
+	border: 1px dashed #ccc;
+	padding: 5px;
+	
+}
+#customize-expertise .view-resume .disable .headings{
+	color: #ccc;
+		font-family:timeburnerregular;
+}
+ #customize-expertise .view-resume .disable .content {
+	color: #ccc;
+		font-family:tahoma;
+}
+.break {
+	page-break-after: always;
+}
+/**/
+
+
+/*tnemeing*/
+#customize-executive {
+	display: none;
+	float: left;
+	width: 70%
+}
+
+.buttonPan {
+	float: right;
+	width: 70%
+}
+#customize-expertise, #customize-executive {
+	display: none;
+}
+#customize-executive {
+	font-size: 12px;
+	width: 70%;
+	margin: 0 auto;
+	-moz-box-shadow: #dddddd 1px 1px 10px 6px;
+	-webkit-box-shadow: #dddddd 1px 1px 10px 6px;
+	-o-box-shadow: #dddddd 1px 1px 10px 6px;
+	box-shadow: #dddddd 1px 1px 10px 6px;
+	background-color: #fff;
+	float: left;
+	padding: 60px;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+#customize-executive .view-resume {
+	float: left;
+	width: 100%;
+}
+#customize-executive .view-resume .sections {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#customize-executive .view-resume .sections .content {
+	float: left;
+	width: 100%;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 28px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#customize-executive .view-resume .name {
+	/*margin-left: 204px;*/
+	text-align: right;
+	color: #555555;
+	font-size: 46px;
+	font-weight: normal;
+	line-height: 46px;
+	width: 44%;
+	float: left;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	height: 90px;
+	word-break:normal;
+}
+#customize-executive .view-resume .name span{
+	font-size: 46px;}
+#customize-executive .view-resume .sections .address {
+	float: right;
+	width: 50%;
+	padding: 10px;
+	border-left: 1px solid #555;
+	margin-top: -89px;
+	color: #000;
+	font-size: 12px;
+	background: none;
+}
+#customize-executive .view-resume .sections .headings {
+	text-align: left;
+	color: #fff;
+	font-weight: normal;
+	text-transform: capitalize;
+	font-size: 18px;
+	float: left;
+	width: 96%;
+	background: #54a5c5;
+	margin: 0;
+	padding: 5px 15px 5px 15px;
+	line-height: 26px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#customize-executive .view-resume .sections .headings span {
+	display: block;
+}
+#customize-executive .view-resume .sections .address span {
+	display: inline;
+}
+#customize-executive .view-resume .sections .expertise ul, #customize-executive .view-resume .sections .education ul, #customize-executive .view-resume .sections .skills ul {
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+#customize-executive .view-resume .sections .cvdate {
+	font-weight: bold;
+	color: #555;
+	background: #ccc;
+	padding-right: 5px;
+}
+.smallfontitalic {
+	font-size: 12px;
+	font-style: italic;
+}
+.dashlisting li {
+	list-style-type: none;
+}
+#customize-executive .view-resume .sections .skills ul li, #customize-executive .view-resume .sections .education ul li {
+	list-style-type: none;
+	line-height: 26px;
+	/* background: #ccc; */
+	margin-bottom: 5px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#customize-executive .view-resume .sections .experience label {
+	/* background: #ccc; */
+	width: 100%;
+	display: block;
+	padding-right: 15px;
+}
+#customize-executive .view-resume .sections .experience span {
+	color: #555;
+	display: block;
+	font-weight: bold;
+	float: left;
+	width: 26%;
+	background: #fff;
+}
+#customize-executive .view-resume .sections .education ul li span {
+	background: #fff;
+	color: #555;
+	display: block;
+	float: left;
+	width: 26%;
+	font-size: 16px;
+	text-align: left;
+	padding-right: 20px;
+	font-weight: bold;
+}
+#customize-executive .view-resume .sections .education ul li label {
+	padding-left: 5px;
+}
+#customize-executive .view-resume .sections .education ul li ul li {
+	list-style-type: none;
+	line-height: 26px;
+	background: #fff url(../images/dash.png) no-repeat 207px 12px;
+	margin: 0px;
+	padding-left: 227px;
+}
+#customize-executive .view-resume .sections .skills ul li {
+	list-style-type: disc;
+	line-height: 26px;
+	margin-left: 20px;
+	float: left;
+	width: 30%;
+	background: none;
+}
+#customize-executive .view-resume .sections .expertise ul li {
+	float: left;
+	width: 47%;
+	list-style-type: none;
+	padding-right: 15px
+}
+.break {
+	page-break-after: always;
+}
+#customize-executive .view-resume .sections .content .dashlisting li {
+	list-style-type: none;
+	padding-left: 186px;
+	clear: both;
+	background: #fff;
+}
+#customize-executive .view-resume .disable {
+	border: 1px dashed #ccc;
+	padding: 5px;
+	width: 98%;
+}
+#customize-executive .view-resume .disable .headings, #customize-executive .view-resume .disable .content {
+	color: #ccc;
+}
+#customize-executive .view-resume .disable .headings {
+	background: #ccc;
+	color: #fff;
+}
+/**/

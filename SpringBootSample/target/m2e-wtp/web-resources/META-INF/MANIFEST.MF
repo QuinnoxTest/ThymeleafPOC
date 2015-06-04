@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: SpringBootSample
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: me.imploy
+Build-Jdk: 1.6.0_45
+Built-By: RavishaG
+Created-By: Maven Integration for Eclipse
+
